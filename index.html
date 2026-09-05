@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>一封秘密信件</title>
+  <title>基友限定 · 回忆放映厅</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,13 +12,13 @@
     <section class="lock-card" aria-labelledby="lock-title">
       <div class="envelope" aria-hidden="true"><span>✦</span></div>
       <p class="kicker">A PRIVATE NOTE</p>
-      <h1 id="lock-title">小新的秘密信箱</h1>
-      <p class="copy">这是一封只写给你的信。<br>输入约定的口令，慢慢打开它。</p>
+      <h1 id="lock-title">基友限定 · 十年回忆局</h1>
+      <p class="copy">本场放映仅限熟人入场。<br>输入约定的口令，一起翻翻旧账。</p>
       <form id="unlock-form">
         <label for="password">口令</label>
         <div class="password-row">
           <input id="password" type="password" autocomplete="current-password" required autofocus placeholder="请输入口令">
-          <button type="submit">打开信箱</button>
+          <button type="submit">开始放映</button>
         </div>
         <p id="status" class="status" role="alert" aria-live="polite"></p>
       </form>
@@ -26,7 +26,7 @@
     </section>
   </main>
   <main id="gift" class="gift-shell" hidden>
-    <iframe id="gift-frame" title="给你的秘密信件"></iframe>
+    <iframe id="gift-frame" title="十年基友回忆"></iframe>
     <button id="music-button" class="music-button" type="button">♫ 播放音乐</button>
   </main>
   <script src="app.js"></script>
