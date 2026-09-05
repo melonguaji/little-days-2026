@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>回忆之旅 · 手账插画版</title>
+  <link rel="stylesheet" href="journey-art-cf5ea081.css">
+</head>
+<body>
+  <main id="lock" class="lock-shell">
+    <section class="lock-card" aria-labelledby="lock-title">
+      <div class="envelope" aria-hidden="true"><span>✦</span></div>
+      <p class="kicker">A PRIVATE NOTE</p>
+      <h1 id="lock-title">准备好一起踏上回忆的旅程了吗？！</h1>
+      <p class="copy">输入你的车票，让我们启程！</p>
+      <form id="unlock-form">
+        <label for="password">车票</label>
+        <div class="password-row">
+          <input id="password" type="password" autocomplete="current-password" required autofocus placeholder="请输入你的车票">
+          <button type="submit">出发～</button>
+        </div>
+        <p id="status" class="status" role="alert" aria-live="polite"></p>
+      </form>
+      <p class="hint">请把网址和口令都收好 ♡</p>
+    </section>
+  </main>
+  <main id="gift" class="gift-shell" hidden>
+    <iframe id="gift-frame" title="十年基友回忆"></iframe>
+    <button id="music-button" class="music-button" type="button">♫ 播放音乐</button>
+  </main>
+  <script>const nativeFetch=window.fetch.bind(window);window.fetch=(resource,options)=>nativeFetch(resource==='payload-core.bin'?'payload-core-art-cf5ea081.bin':resource,options);</script>
+  <script src="app.js"></script>
+</body>
+</html>
