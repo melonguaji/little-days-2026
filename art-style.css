@@ -1,0 +1,150 @@
+:root {
+  font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+  color:#493c3b;
+  background:#f8eee2;
+  --paper:#fffaf0;
+  --coral:#cf745f;
+  --coral-dark:#a85448;
+  --blue:#7899a2;
+  --gold:#c79545;
+}
+* { box-sizing:border-box; }
+body { margin:0; }
+.lock-shell {
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:32px 20px;
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(110deg,rgba(255,248,237,.68),rgba(255,241,232,.46)),url("journey-bg.png") center/cover fixed;
+}
+.lock-shell::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:radial-gradient(circle at 50% 45%,transparent 0 28%,rgba(118,83,65,.12) 100%);
+  pointer-events:none;
+}
+.lock-card {
+  width:min(590px,94vw);
+  position:relative;
+  padding:58px clamp(25px,7vw,64px) 46px;
+  text-align:center;
+  background:rgba(255,250,240,.96);
+  border:1px solid rgba(180,137,109,.46);
+  border-radius:8px;
+  box-shadow:0 28px 75px rgba(87,55,42,.26),0 2px 0 #fff inset;
+}
+.lock-card::before {
+  content:"";
+  position:absolute;
+  inset:13px;
+  border:1px dashed rgba(190,117,91,.55);
+  pointer-events:none;
+}
+.lock-card::after {
+  content:"BOARDING PASS  ·  MEMORY LINE";
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  color:#aa8271;
+  font:600 9px Georgia,serif;
+  letter-spacing:.18em;
+  white-space:nowrap;
+}
+.envelope {
+  width:104px;
+  height:58px;
+  margin:0 auto 24px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  color:#fffaf0;
+  background:linear-gradient(135deg,#d47d68,#bd6558);
+  border:1px solid #a9564a;
+  border-radius:7px;
+  transform:rotate(-3deg);
+  box-shadow:0 11px 25px rgba(149,74,59,.28);
+}
+.envelope::before,.envelope::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  width:16px;
+  height:32px;
+  transform:translateY(-50%);
+  background:var(--paper);
+  border-radius:50%;
+}
+.envelope::before { left:-9px; }
+.envelope::after { right:-9px; }
+.envelope span { font-size:25px; animation:compass 4s ease-in-out infinite; }
+.kicker { margin:0; color:var(--coral-dark); font:700 11px Georgia,serif; letter-spacing:.24em; }
+.lock-card h1 {
+  max-width:470px;
+  margin:18px auto 13px;
+  color:#493c3b;
+  font-family:"STKaiti","KaiTi",Georgia,serif;
+  font-size:clamp(31px,6vw,49px);
+  line-height:1.28;
+  font-weight:500;
+}
+.copy { margin:0; line-height:1.9; color:#79655e; font-size:16px; }
+form { margin-top:32px; text-align:left; }
+label { display:block; margin:0 0 9px 3px; color:#876b62; font-size:13px; letter-spacing:.12em; }
+.password-row { display:flex; gap:10px; }
+input {
+  min-width:0;
+  flex:1;
+  padding:15px 17px;
+  border:1px solid #d9c2b2;
+  border-radius:8px;
+  color:#493c3b;
+  background:#fffdf8;
+  font:inherit;
+  outline:none;
+}
+input:focus { border-color:var(--coral); box-shadow:0 0 0 3px rgba(207,116,95,.16); }
+button {
+  border:0;
+  border-radius:8px;
+  padding:15px 24px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--coral),#bd6558);
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 9px 20px rgba(166,76,60,.23);
+  transition:transform .2s,box-shadow .2s;
+}
+button:hover { transform:translateY(-2px); box-shadow:0 13px 24px rgba(166,76,60,.3); }
+button:disabled { opacity:.65; cursor:wait; transform:none; }
+.status { min-height:24px; margin:10px 3px 0; color:var(--coral-dark); font-size:13px; }
+.hint { margin:20px 0 0; color:#a18479; font-size:12px; }
+.gift-shell { position:fixed; inset:0; background:#f8eee2; }
+.gift-shell[hidden] { display:none; }
+#gift-frame { width:100%; height:100%; border:0; }
+.music-button {
+  position:fixed;
+  z-index:5;
+  right:18px;
+  bottom:18px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:999px;
+  background:linear-gradient(135deg,#cd725e,#b95f55);
+  box-shadow:0 12px 30px rgba(112,68,55,.35);
+}
+@keyframes compass { 50% { transform:rotate(18deg) scale(1.08); } }
+@media(max-width:560px) {
+  .lock-shell { padding:22px 16px; background-attachment:scroll; background-position:center top; }
+  .lock-card { padding:48px 22px 40px; }
+  .lock-card h1 { font-size:clamp(30px,9vw,42px); }
+  .copy { font-size:15px; }
+  .password-row { flex-direction:column; }
+  .password-row button { width:100%; }
+  .music-button { right:12px; bottom:14px; }
+}
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } }
