@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>一封秘密信件</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="lock" class="lock-shell">
+    <section class="lock-card" aria-labelledby="lock-title">
+      <div class="envelope" aria-hidden="true"><span>✦</span></div>
+      <p class="kicker">A PRIVATE NOTE</p>
+      <h1 id="lock-title">小新的秘密信箱</h1>
+      <p class="copy">这是一封只写给你的信。<br>输入约定的口令，慢慢打开它。</p>
+      <form id="unlock-form">
+        <label for="password">口令</label>
+        <div class="password-row">
+          <input id="password" type="password" autocomplete="current-password" required autofocus placeholder="请输入口令">
+          <button type="submit">打开信箱</button>
+        </div>
+        <p id="status" class="status" role="alert" aria-live="polite"></p>
+      </form>
+      <p class="hint">请把网址和口令都收好 ♡</p>
+    </section>
+  </main>
+  <main id="gift" class="gift-shell" hidden>
+    <iframe id="gift-frame" title="给你的秘密信件"></iframe>
+    <button id="music-button" class="music-button" type="button">♫ 播放音乐</button>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
