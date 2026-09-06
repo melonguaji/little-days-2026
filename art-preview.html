@@ -30,6 +30,7 @@
     <button id="music-button" class="music-button" type="button">♫ 播放音乐</button>
   </main>
   <script>const nativeFetch=window.fetch.bind(window);window.fetch=(resource,options)=>nativeFetch(resource==='payload-core.bin'?'payload-core-art.bin':resource,options);</script>
+  <script src="fflate.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
