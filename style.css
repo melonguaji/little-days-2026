@@ -137,7 +137,31 @@ button:disabled { opacity:.65; cursor:wait; transform:none; }
   background:linear-gradient(135deg,#cd725e,#b95f55);
   box-shadow:0 12px 30px rgba(112,68,55,.35);
 }
+.video-status {
+  position:fixed;
+  z-index:6;
+  left:18px;
+  bottom:18px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  max-width:calc(100vw - 200px);
+  padding:11px 15px;
+  color:#5d514d;
+  background:rgba(255,250,240,.96);
+  border:1px dashed rgba(184,117,93,.6);
+  border-radius:999px;
+  box-shadow:0 10px 28px rgba(92,62,45,.2);
+  font-size:13px;
+}
+.video-status[hidden] { display:none; }
+.video-spinner { width:15px; height:15px; flex:0 0 auto; border:2px solid rgba(207,116,95,.28); border-top-color:var(--coral); border-radius:50%; animation:video-spin .8s linear infinite; }
+.video-status.is-ready { color:#466b62; border-color:rgba(78,132,117,.48); }
+.video-status.is-ready .video-spinner { border:0; animation:none; }
+.video-status.is-error { color:#a85448; }
+.video-status.is-error .video-spinner { border-color:#cf745f; animation:none; }
 @keyframes compass { 50% { transform:rotate(18deg) scale(1.08); } }
+@keyframes video-spin { to { transform:rotate(360deg); } }
 @media(max-width:560px) {
   .lock-shell { padding:22px 16px; background-attachment:scroll; background-position:center top; }
   .lock-card { padding:48px 22px 40px; }
@@ -146,5 +170,6 @@ button:disabled { opacity:.65; cursor:wait; transform:none; }
   .password-row { flex-direction:column; }
   .password-row button { width:100%; }
   .music-button { right:12px; bottom:14px; }
+  .video-status { left:12px; bottom:70px; max-width:calc(100vw - 24px); }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } }
