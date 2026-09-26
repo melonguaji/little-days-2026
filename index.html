@@ -5,27 +5,34 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <title>回忆之旅</title>
-  <link rel="stylesheet" href="style.css?v=20260906-3">
+  <link rel="stylesheet" href="style.css?v=20260926-1">
 </head>
 <body>
   <main id="lock" class="lock-shell">
-    <section class="lock-card" aria-labelledby="lock-title">
-      <div class="envelope" aria-hidden="true"><span>✦</span></div>
-      <p class="kicker">A PRIVATE NOTE</p>
-      <h1 id="lock-title">准备好一起踏上回忆的旅程了吗？！</h1>
-      <p class="copy">输入你的车票，让我们启程！</p>
-      <form id="unlock-form">
-        <label for="password">车票</label>
-        <div class="password-row">
-          <input id="password" type="password" autocomplete="current-password" required autofocus placeholder="请输入你的车票">
-          <button type="submit">出发～</button>
+    <div class="moon-glow" aria-hidden="true"></div>
+    <section class="hero-copy" aria-labelledby="lock-title">
+      <p class="kicker">JOURNEY 01 · A PRIVATE BIRTHDAY LETTER</p>
+      <h1 id="lock-title">今晚，列车会把你<br><em>带到一封信面前。</em></h1>
+      <p class="copy">一句藏在旅途里的阿加莎文字，<br>一封只等你亲手打开的生日信。</p>
+      <button id="start-investigation" class="start-button" type="button"><span>开始旅程</span><b>↗</b></button>
+      <p class="scroll-note">FOLLOW THE NEXT CLUE <span>↓</span></p>
+    </section>
+    <section id="investigation" class="investigation-panel" aria-labelledby="investigation-title" hidden>
+      <div class="paper-tab"><span>NO. 010 · PRIVATE LINE</span><span>14 SEP 2026</span></div>
+      <div class="case-heading"><span class="case-number">01</span><div><p class="eyebrow">THE SECRET POSTCARD</p><h2 id="investigation-title">先解开一句话，再驶向回忆。</h2></div></div>
+      <div class="case-grid">
+        <div class="evidence-column">
+          <div class="clue-card"><span class="clue-mark">POSTCARD 01 / CIPHER</span><p>凯撒密码 · 向前移 3 位</p><code id="cipher-text">Wr wudyho eb wudlq lv wr vhh qdwxuh dqg kxpdq ehlqjv,<br>wrzqv dqg fkxufkhv dqg ulyhuv — lq idfw, wr vhh olih.</code><p id="decoded-text" class="decoded-text" aria-live="polite">点击密码盘，开始让纸条上的字母转动。</p></div>
+          <div class="hint-actions"><button id="hint-button" class="text-button" type="button">查看旅途提示 <span>＋</span></button><p id="hint-text" class="hint-text" hidden></p></div>
         </div>
-        <p id="status" class="status" role="alert" aria-live="polite"></p>
-      </form>
-      <p class="hint">请把网址和口令都收好 ♡</p>
+        <div class="cipher-column"><div class="cipher-dial" aria-label="凯撒密码盘"><button id="dial-minus" type="button" aria-label="密码盘向左转一格">−</button><div class="dial-face"><span>Q</span><b id="dial-value">+3</b><span>N</span></div><button id="dial-plus" type="button" aria-label="密码盘向右转一格">＋</button></div><p class="dial-caption">TURN THE DIAL<br><small>拨到正确的位置，解开纸条</small></p></div>
+      </div>
+      <form id="unlock-form" class="answer-area"><label for="password">这句话是谁说的？</label><div class="password-row"><input id="password" type="password" autocomplete="current-password" required placeholder="请输入作者姓名"><button id="unlock-button" type="submit">打开生日信 <span>→</span></button></div><p id="status" class="status" role="alert" aria-live="polite"></p></form>
+      <p class="paper-footer"><span>TRAVELER'S NOTE</span><span>请把答案和这趟旅程一起收好 ♡</span></p>
     </section>
   </main>
   <main id="gift" class="gift-shell" hidden>
+    <div id="success-note" class="success-note" role="status" aria-live="polite"><strong>答案正确。</strong><span>阿加莎·克里斯蒂 · 《阿加莎·克里斯蒂自传》</span><small>下一站，回到我们的回忆。</small></div>
     <iframe id="gift-frame" title="十年基友回忆"></iframe>
     <div id="video-status" class="video-status" role="status" aria-live="polite" hidden>
       <span class="video-spinner" aria-hidden="true"></span>
@@ -33,8 +40,8 @@
     </div>
     <button id="music-button" class="music-button" type="button">♫ 播放音乐</button>
   </main>
-  <script src="fflate.min.js?v=20260906-3"></script>
-  <script src="app.js?v=20260906-3"></script>
-  <script src="video-player-v4.js"></script>
+  <script src="fflate.min.js?v=20260926-1"></script>
+  <script src="case-interaction.js"></script>
+  <script src="app.js?v=20260926-1"></script>
 </body>
 </html>
