@@ -17,7 +17,7 @@ body { margin:0; }
   padding:32px 20px;
   position:relative;
   isolation:isolate;
-  background:linear-gradient(110deg,rgba(255,248,237,.68),rgba(255,241,232,.46)),url("journey-bg.png") center/cover fixed;
+  background:radial-gradient(circle at 12% 20%,rgba(171,63,68,.18),transparent 24%),radial-gradient(circle at 88% 80%,rgba(171,63,68,.12),transparent 26%),#eee4d6;
 }
 .lock-shell::before {
   content:"";
@@ -28,20 +28,20 @@ body { margin:0; }
   pointer-events:none;
 }
 .lock-card {
-  width:min(590px,94vw);
+  width:min(700px,94vw);
   position:relative;
-  padding:58px clamp(25px,7vw,64px) 46px;
+  padding:38px clamp(25px,7vw,78px) 52px;
   text-align:center;
-  background:rgba(255,250,240,.96);
-  border:1px solid rgba(180,137,109,.46);
-  border-radius:8px;
+  background:#f8f0e4;
+  border:1px solid rgba(112,67,52,.34);
+  border-radius:2px;
   box-shadow:0 28px 75px rgba(87,55,42,.26),0 2px 0 #fff inset;
 }
 .lock-card::before {
   content:"";
   position:absolute;
-  inset:13px;
-  border:1px dashed rgba(190,117,91,.55);
+  inset:12px;
+  border:1px solid rgba(126,73,57,.35);
   pointer-events:none;
 }
 .lock-card::after {
@@ -55,6 +55,7 @@ body { margin:0; }
   letter-spacing:.18em;
   white-space:nowrap;
 }
+.ticket-top { display:flex; justify-content:space-between; color:#9b7666; font:700 10px Georgia,serif; letter-spacing:.16em; }
 .envelope {
   width:104px;
   height:58px;
@@ -86,14 +87,18 @@ body { margin:0; }
 .lock-card h1 {
   max-width:470px;
   margin:18px auto 13px;
-  color:#493c3b;
+  color:#402725;
   font-family:"STKaiti","KaiTi",Georgia,serif;
   font-size:clamp(31px,6vw,49px);
   line-height:1.28;
   font-weight:500;
 }
+.lock-card h1 em { color:#8e3132; font-style:normal; }
 .copy { margin:0; line-height:1.9; color:#79655e; font-size:16px; }
 form { margin-top:32px; text-align:left; }
+.route-line { display:flex; align-items:center; justify-content:center; gap:10px; margin:25px 0 4px; color:#9b7666; font:700 9px Georgia,serif; letter-spacing:.18em; }
+.route-line i { width:70px; border-top:1px solid #c4a996; }
+.route-line b { color:#8e3132; font-size:14px; }
 label { display:block; margin:0 0 9px 3px; color:#876b62; font-size:13px; letter-spacing:.12em; }
 .password-row { display:flex; gap:10px; }
 input {
@@ -123,7 +128,12 @@ button {
 button:hover { transform:translateY(-2px); box-shadow:0 13px 24px rgba(166,76,60,.3); }
 button:disabled { opacity:.65; cursor:wait; transform:none; }
 .status { min-height:24px; margin:10px 3px 0; color:var(--coral-dark); font-size:13px; }
-.hint { margin:20px 0 0; color:#a18479; font-size:12px; }
+.clue-card { margin:22px auto 0; padding:17px 20px 15px; text-align:left; background:#eee3d4; border-left:4px solid #8e3132; box-shadow:0 8px 20px rgba(108,71,53,.1); }
+.clue-mark { color:#8e3132; font:700 10px Georgia,serif; letter-spacing:.18em; }
+.clue-card p { margin:7px 0 8px; color:#6b4c40; font-size:12px; }
+.clue-card code { display:block; color:#432c2a; font:500 clamp(10px,1.7vw,12px)/1.65 Georgia,serif; letter-spacing:.04em; word-break:break-word; }
+.clue-card small { display:block; margin-top:10px; color:#8c6c5d; font-size:11px; }
+.hint { margin:15px 0 0; color:#a18479; font-size:12px; }
 .gift-shell { position:fixed; inset:0; background:#f8eee2; }
 .gift-shell[hidden] { display:none; }
 #gift-frame { width:100%; height:100%; border:0; }
@@ -165,6 +175,8 @@ button:disabled { opacity:.65; cursor:wait; transform:none; }
 @media(max-width:560px) {
   .lock-shell { padding:22px 16px; background-attachment:scroll; background-position:center top; }
   .lock-card { padding:48px 22px 40px; }
+  .ticket-top { font-size:8px; }
+  .route-line i { width:34px; }
   .lock-card h1 { font-size:clamp(30px,9vw,42px); }
   .copy { font-size:15px; }
   .password-row { flex-direction:column; }
@@ -173,3 +185,81 @@ button:disabled { opacity:.65; cursor:wait; transform:none; }
   .video-status { left:12px; bottom:70px; max-width:calc(100vw - 24px); }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } }
+
+/* Case-file home experience */
+.lock-shell { min-height:100svh; display:block; overflow:hidden; padding:0; color:#f5eadb; background:#111c31 url("midnight-train.png") center/cover fixed; }
+.lock-shell::before { background:linear-gradient(90deg,rgba(8,17,33,.86) 0%,rgba(8,17,33,.58) 43%,rgba(8,17,33,.15) 78%),linear-gradient(180deg,rgba(9,18,36,.12),rgba(9,18,36,.72)); }
+.moon-glow { position:absolute; width:42vw; height:42vw; max-width:560px; max-height:560px; left:3vw; top:3vh; border-radius:50%; background:radial-gradient(circle,rgba(230,218,188,.18),transparent 65%); pointer-events:none; }
+.hero-copy { min-height:100svh; width:min(650px,90vw); padding:clamp(90px,14vh,170px) 0 70px clamp(26px,9vw,150px); position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; }
+.hero-copy .kicker { color:#d4b58e; font-size:11px; letter-spacing:.18em; }
+.hero-copy h1 { margin:25px 0 22px; color:#fff2df; font-family:"STKaiti","KaiTi",Georgia,serif; font-size:clamp(42px,6.5vw,78px); line-height:1.13; font-weight:500; letter-spacing:.02em; text-shadow:0 4px 25px rgba(0,0,0,.24); }
+.hero-copy h1 em { color:#e9b8a4; font-style:normal; }
+.hero-copy .copy { color:#d6c8bc; font-size:17px; line-height:2; }
+.start-button { display:inline-flex; align-items:center; gap:34px; margin-top:35px; padding:15px 18px 15px 23px; border:1px solid rgba(238,211,181,.62); border-radius:999px; color:#f8ebdd; background:rgba(135,43,42,.78); box-shadow:0 13px 30px rgba(0,0,0,.3); letter-spacing:.08em; }
+.start-button b { display:grid; place-items:center; width:30px; height:30px; color:#541f24; background:#e7c39d; border-radius:50%; font-size:18px; }
+.scroll-note { margin-top:48px; color:#bba99c; font:10px Georgia,serif; letter-spacing:.2em; }
+.scroll-note span { margin-left:12px; color:#e4bb92; font-size:16px; }
+.investigation-panel { width:min(1060px,92vw); margin:0 auto 10vh; padding:clamp(27px,5vw,58px); color:#4a2d2d; background:#f3e8d7; border:1px solid rgba(231,202,164,.75); box-shadow:0 22px 70px rgba(0,0,0,.38); position:relative; }
+.investigation-panel[hidden] { display:none; }
+.investigation-panel::before { content:""; position:absolute; inset:13px; border:1px solid rgba(128,73,52,.25); pointer-events:none; }
+.paper-tab { display:flex; justify-content:space-between; color:#9a7661; font:700 10px Georgia,serif; letter-spacing:.17em; }
+.case-heading { display:flex; gap:18px; align-items:flex-start; margin:52px 0 34px; }
+.case-number { color:#9a3634; font:400 54px Georgia,serif; line-height:.8; }
+.eyebrow { margin:0 0 7px; color:#9a3634; font:700 10px Georgia,serif; letter-spacing:.19em; }
+.case-heading h2 { margin:0; color:#44282a; font-family:"STKaiti","KaiTi",Georgia,serif; font-size:clamp(32px,4.4vw,54px); font-weight:500; }
+.case-grid { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(210px,.8fr); gap:32px; align-items:center; }
+.clue-card { margin:0; padding:24px 26px 22px; background:#e8dac6; border-left:4px solid #963b39; box-shadow:0 10px 24px rgba(88,53,40,.12); }
+.clue-mark { color:#963b39; font:700 10px Georgia,serif; letter-spacing:.18em; }
+.clue-card p { margin:10px 0 10px; color:#735346; font-size:13px; }
+.clue-card code { display:block; color:#432c2a; font:500 clamp(11px,1.4vw,14px)/1.8 Georgia,serif; letter-spacing:.035em; word-break:break-word; }
+.clue-card code.is-solved { color:#963b39; }
+.decoded-text { min-height:48px; margin-bottom:0!important; padding-top:13px; border-top:1px solid rgba(128,73,52,.24); font-style:italic; line-height:1.55; }
+.decoded-text { transition:color .2s ease, opacity .2s ease; }
+.decoded-text.is-solved { color:#6d2d31; }
+.decoded-text.is-overturned { color:#a05f46; }
+.cipher-column { text-align:center; }
+.cipher-dial { display:flex; justify-content:center; align-items:center; gap:12px; }
+.cipher-dial > button { width:37px; height:37px; padding:0; border:1px solid #bd9673; border-radius:50%; color:#7b3635; background:transparent; box-shadow:none; font-size:25px; line-height:1; }
+.cipher-dial > button:hover { color:#fff; background:#963b39; }
+.dial-face { display:flex; flex-direction:column; justify-content:center; align-items:center; width:148px; height:148px; border:1px solid #bd9673; border-radius:50%; color:#8d3a39; background:radial-gradient(circle at 50% 45%,#fbf1df,#dfc9aa); box-shadow:inset 0 0 0 8px rgba(255,255,255,.2),0 13px 22px rgba(91,56,39,.18); }
+.dial-face span { color:#927764; font:16px Georgia,serif; }
+.dial-face b { margin:7px 0; color:#8d3033; font:500 41px Georgia,serif; }
+.dial-face b.is-correct { text-shadow:0 0 17px rgba(173,52,45,.42); }
+.dial-caption { margin:18px 0 0; color:#8d6f5e; font:700 10px Georgia,serif; letter-spacing:.2em; line-height:1.7; }
+.dial-caption small { font:12px "Microsoft YaHei","PingFang SC",sans-serif; letter-spacing:0; }
+.hint-actions { margin-top:16px; }
+.text-button { padding:0; color:#8e3836; background:transparent; box-shadow:none; font-size:12px; }
+.text-button:hover { transform:none; box-shadow:none; text-decoration:underline; }
+.text-button:disabled { opacity:1; cursor:default; }
+.hint-text { margin:9px 0 0; color:#876a59; font-size:12px; }
+.answer-area { margin-top:39px; padding-top:26px; border-top:1px solid rgba(128,73,52,.28); text-align:left; }
+.answer-area label { color:#6c5044; font-size:13px; letter-spacing:.07em; }
+.answer-area input { border-radius:0; border-color:#c9ab8e; background:#fbf2e4; }
+.answer-area button { border-radius:0; background:#963b39; }
+.paper-footer { display:flex; justify-content:space-between; margin:34px 0 0; color:#a48570; font:10px Georgia,serif; letter-spacing:.12em; }
+.success-note {
+  position:fixed;
+  z-index:10;
+  left:50%;
+  top:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  width:min(420px,calc(100vw - 36px));
+  padding:28px 25px;
+  text-align:center;
+  color:#4b2a2c;
+  background:rgba(247,237,219,.97);
+  border:1px solid #c79b75;
+  box-shadow:0 18px 50px rgba(0,0,0,.34);
+  opacity:0;
+  pointer-events:none;
+  transform:translate(-50%,-46%) scale(.96);
+  transition:opacity .3s ease,transform .3s ease;
+}
+.success-note.is-visible { opacity:1; transform:translate(-50%,-50%) scale(1); }
+.success-note strong { color:#963b39; font:700 13px Georgia,serif; letter-spacing:.12em; }
+.success-note span { font-family:"STKaiti","KaiTi",Georgia,serif; font-size:22px; line-height:1.45; }
+.success-note small { color:#856959; font-size:12px; }
+@media(max-width:700px) { .lock-shell { background-position:62% center; background-attachment:scroll; overflow:auto; } .lock-shell::before { background:linear-gradient(90deg,rgba(8,17,33,.82),rgba(8,17,33,.4)),linear-gradient(180deg,rgba(9,18,36,.12),rgba(9,18,36,.83)); } .hero-copy { min-height:100svh; width:100%; padding:80px 25px 55px; justify-content:flex-end; } .hero-copy h1 { font-size:clamp(41px,12vw,60px); } .hero-copy .copy { font-size:15px; } .investigation-panel { width:calc(100% - 24px); margin-bottom:28px; padding:28px 20px 31px; } .case-grid { grid-template-columns:1fr; gap:29px; } .case-heading { margin-top:40px; } .case-heading h2 { font-size:38px; } .cipher-column { order:-1; } .dial-face { width:126px; height:126px; } .answer-area .password-row { flex-direction:column; } .answer-area button { width:100%; } .paper-footer { flex-direction:column; gap:8px; } }
